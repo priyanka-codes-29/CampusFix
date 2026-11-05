@@ -50,10 +50,19 @@
         <label>Location</label><br>
         <input type="text"><br>
         <label>Description</label><br>
-        <textarea></textarea><br>
+        <textarea id="Description"></textarea><br>
+        <p>Characters:<span id="Charactercount">0</span></p>
         <label>Add a photo(optional)</label><br>
         <input type="file"><br>
         <button>Submit</button>
+        <script>
+            const box=document.getElementById("Description");
+            const count=document.getElementById("Charactercount");
+
+            box.addEventListener("input",function (){count.textContent=box.value.length;
+
+            });
+        </script>
         
     </body>
 </html>
