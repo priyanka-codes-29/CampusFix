@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            CampusFix
+        </title>
+        <style>h1{
+             color:rgb(147, 91, 24);
+             font-size: 40px;
+             text-align: center;
+        }
+        p{
+            font-size: 20px;
+            text-align: center;
+            color:rgb(20, 90, 134)
+        }
+         body{
+            background-color: rgb(240, 211, 216);
+            font-family:Arial,sans-serif;
+            
+        }
+        input,textarea,select{
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 500px;
+        }
+        label{
+            display: block;
+            font-size: 25;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>CampusFix</h1>
+        <p>Report campus problems here, such as issues in lecture rooms, the library, or other college facilities. CampusFix helps students report problems and track their status.</p>
+        <label>Issue title</label><br>
+        <input type="text"><br>
+        <label>Category</label><br>
+        <select>
+            <option>Electrical</option>
+            <option>water</option>
+            <option>Furniture</option>
+            <option>Cleanliness</option>
+            <option>Internet/Wifi</option>
+            <option>hostel</option>
+            <option>classroom</option>
+            <option>security</option>
+            <option>other</option>
+        </select><br>
+        <label>Location</label><br>
+        <input type="text"><br>
+        <label>Description</label><br>
+        <textarea id="Description"></textarea><br>
+        <p>Characters:<span id="Charactercount">0</span></p>
+        <label>Add a photo(optional)</label><br>
+        <input type="file"><br>
+        <button>Submit</button>
+        <script>
+            const box=document.getElementById("Description");
+            const count=document.getElementById("Charactercount");
+
+            box.addEventListener("input",function (){count.textContent=box.value.length;
+
+            });
+        </script>
+        
+    </body>
+</html>
