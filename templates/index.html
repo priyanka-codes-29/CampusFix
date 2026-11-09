@@ -33,10 +33,11 @@
     <body>
         <h1>CampusFix</h1>
         <p>Report campus problems here, such as issues in lecture rooms, the library, or other college facilities. CampusFix helps students report problems and track their status.</p>
+        <form action="/report" method="POST" enctype="multipart/form-data">
         <label>Issue title</label><br>
-        <input type="text"><br>
+        <input required type="text" name="issue_title"><br>
         <label>Category</label><br>
-        <select>
+        <select required name="category">
             <option>Electrical</option>
             <option>water</option>
             <option>Furniture</option>
@@ -47,14 +48,15 @@
             <option>security</option>
             <option>other</option>
         </select><br>
-        <label>Location</label><br>
-        <input type="text"><br>
-        <label>Description</label><br>
-        <textarea id="Description"></textarea><br>
+        <label>location</label><br>
+        <input required type="text" name="location"><br>
+        <label>description</label><br>
+        <textarea required id="Description" name="description"></textarea><br>
         <p>Characters:<span id="Charactercount">0</span></p>
         <label>Add a photo(optional)</label><br>
-        <input type="file"><br>
+        <input type="file" name="photo"><br>
         <button>Submit</button>
+        </form>
         <script>
             const box=document.getElementById("Description");
             const count=document.getElementById("Charactercount");
