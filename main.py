@@ -1,5 +1,8 @@
+import os
 from flask import Flask ,render_template ,request
+from werkzeug.utils import secure_filename
 app= Flask(__name__)
+app.config["UPLOAD_FOLDER"]=os.path.join(app.root_path, "uploads")
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -26,7 +29,9 @@ def submit_report():
 
     photo=request.files.get("photo")
     if photo and photo.filename:
-        photo_name=photo.filename
+        photo_name=secure_filename(photo.filename)
+        photo_path=os.path.join(app.config["UPLOAD_FOLDER"],photo_name)
+        photo.save(photo_path)
     else:
         photo_name="photo not uploaded"
     print("Issue title=",issue_title,"Category=",category,"Location=",location,"Description=",description,"Photo=",photo)
